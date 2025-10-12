@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "bf4ceafb-86a5-4cdb-ba38-4a10d692c678",
+		"name": "Clínica Odontológica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22466861",
+		"_collection_link": "https://www.postman.com/cloudy-space-264912/workspace/backend/collection/22466861-bf4ceafb-86a5-4cdb-ba38-4a10d692c678?action=share&source=collection_link&creator=22466861"
+	},
+	"item": [
+		{
+			"name": "Odontólogos",
+			"item": [
+				{
+					"name": "Agregar Odontólogos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"registration\": 124570,\r\n    \"name\": \"Delfina\",\r\n    \"lastName\": \"Garcia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/dentist"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Odontólogos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/dentist/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Odontólogos Por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/dentist/id/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Odontólogos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"registration\": 123456,\r\n    \"name\": \"Vanina\",\r\n    \"lastName\": \"Godoy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/dentist/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Odontológos",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/dentist/delete/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pacientes",
+			"item": [
+				{
+					"name": "Agregar Pacientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vanina\",\r\n    \"lastName\": \"Godoy\",\r\n    \"cardIdentity\": \"22.222.222\",\r\n    \"admissionOfDate\": \"2023-12-24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Pacientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/patient/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Pacientes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Florencia\",\r\n    \"lastName\": \"Grosso\",\r\n    \"cardIdentity\": \"12.222.222\",\r\n    \"admissionOfDate\": \"2023-12-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/patient/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Consulatar Pacientes por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/patient/id?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient",
+								"id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Pacientes",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/patient/delete/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

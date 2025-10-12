@@ -1,0 +1,13 @@
+[2023-11-17 14:01:09] [ INFO ] [ClinicaOdontologica:65] Los valores insertados en la tabla son:  En la fila: 1 ID: 1 Matrícula: 134679 Nombre: Vanina Apellido: Godoy
+[2023-11-17 14:01:09] [ INFO ] [ClinicaOdontologica:65] Los valores insertados en la tabla son:  En la fila: 2 ID: 2 Matrícula: 172839 Nombre: Juan Apellido: Perez
+[2023-11-17 14:01:09] [ WARN ] [ClinicaOdontologica:84] Se actualizó el registro correspondiente al id: 1
+[2023-11-17 14:01:09] [ WARN ] [ClinicaOdontologica:96] AVISO: Se eliminó el registro con id 2
+[2023-11-17 14:01:09] [ INFO ] [ClinicaOdontologica:122] Los datos actualizados:  ID: 1 Matrícula: 134679 Nombre: Vanina Andrea Apellido: Godoy
+[2023-11-17 14:01:09] [ INFO ] [ClinicaOdontologica:143] La consulta final luego de borrar el registro con id=1 es:  ID: 1 Matrícula: 134679 Nombre: Vanina Andrea Apellido: Godoy
+[2023-11-17 14:03:22] [ INFO ] [ClinicaOdontologica:65] Los valores insertados en la tabla son:  En la fila: 1 ID: 1 Matrícula: 134679 Nombre: Vanina Apellido: Godoy
+[2023-11-17 14:03:22] [ INFO ] [ClinicaOdontologica:65] Los valores insertados en la tabla son:  En la fila: 2 ID: 2 Matrícula: 172839 Nombre: Juan Apellido: Perez
+[2023-11-17 14:03:22] [ WARN ] [ClinicaOdontologica:84] Se actualizó el registro correspondiente al id: 1
+[2023-11-17 14:03:22] [ WARN ] [ClinicaOdontologica:96] AVISO: Se eliminó el registro con id 2
+[2023-11-17 14:03:22] [ ERROR] [ClinicaOdontologica:104] / by zero
+[2023-11-17 14:03:22] [ INFO ] [ClinicaOdontologica:123] Los datos actualizados:  ID: 1 Matrícula: 134679 Nombre: Vanina Andrea Apellido: Godoy
+[2023-11-17 14:03:22] [ INFO ] [ClinicaOdontologica:144] La consulta final luego de borrar el registro con id=1 es:  ID: 1 Matrícula: 134679 Nombre: Vanina Andrea Apellido: Godoy
