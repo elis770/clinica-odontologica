@@ -23,22 +23,25 @@ public class PatientIDaoH2 implements IDao<Patient> {
         Connection connection = null;
         try {
             AddressDaoH2 addressDaoH2 = new AddressDaoH2();
-            addressDaoH2.save(patient.getAddress());
+            Address savedAddress = addressDaoH2.save(patient.getAddress());
+            patient.setAddress(savedAddress);
+
             connection = DB.getConnection();
-            PreparedStatement ps = connection.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = connection.prepareStatement(SQL_INSERT, new String[]{"ID"});
             ps.setString(1, patient.getName());
             ps.setString(2, patient.getLastName());
             ps.setString(3, patient.getEmail());
             ps.setInt(4, patient.getCardIdentity());
             ps.setDate(5,Date.valueOf( patient.getAdmissionOfDate()));
             ps.setInt(6, patient.getAddress().getId());
-            ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
-            while (rs.next()){
+            if (rs.next()){
                 patient.setId(rs.getInt(1));
             }
+            ps.execute();
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
             try {
                 connection.close();
@@ -88,7 +91,6 @@ public class PatientIDaoH2 implements IDao<Patient> {
             ps.setInt(4, patient.getCardIdentity());
             ps.setDate(5,Date.valueOf( patient.getAdmissionOfDate()));
             ps.setInt(6, patient.getAddress().getId());
-            ps.setInt(7, patient.getId());
             ps.execute();
         } catch (Exception e) {
             e.printStackTrace();

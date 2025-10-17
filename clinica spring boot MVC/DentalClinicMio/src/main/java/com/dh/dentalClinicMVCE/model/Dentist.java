@@ -7,6 +7,9 @@ public class Dentist {
     private String name;
     private String lastName;
 
+
+    public Dentist(){
+    }
     public Dentist(Integer id,int registration, String lastName, String name) {
         this.id = id;
         this.registration = registration;

@@ -6,20 +6,23 @@ public class Address {
     private String street;
     private Integer number;
     private String location;
-    private String state;
+    private String province;
 
-    public Address(Integer id, String street, Integer number, String location, String state) {
+    public Address() {
+    }
+
+    public Address(Integer id, String street, Integer number, String location, String province) {
         this.id = id;
         this.street = street;
         this.number = number;
         this.location = location;
-        this.state = state;
+        this.province = province;
     }
-    public Address(String street, Integer number, String location, String state) {
+    public Address(String street, Integer number, String location, String province) {
         this.street = street;
         this.number = number;
         this.location = location;
-        this.state = state;
+        this.province = province;
     }
 
     public Integer getId() {
@@ -46,12 +49,12 @@ public class Address {
         this.number = number;
     }
 
-    public String getState() {
-        return state;
+    public String getProvince() {
+        return province;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public String getStreet() {

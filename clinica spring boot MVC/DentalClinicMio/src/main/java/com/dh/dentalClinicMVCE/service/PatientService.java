@@ -19,7 +19,7 @@ public class PatientService {
         this.patientIDao = patientIDao;
     }
 
-    public Patient save(Patient patient) throws SQLException {
+    public Patient save(Patient patient) {
         return patientIDao.save(patient);
     }
 

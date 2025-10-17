@@ -17,7 +17,7 @@ public class DentistService {
         this.dentistIDao = dentistIDao;
     }
 
-    public Dentist save(Dentist dentist) throws SQLException {
+    public Dentist save(Dentist dentist) {
         return dentistIDao.save(dentist);
     }
 
