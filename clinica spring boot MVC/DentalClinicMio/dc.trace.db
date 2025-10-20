@@ -178,3 +178,19 @@ INSERT INTO ADDRESSES (STREET, NUMBER, LOCATION, STATE) VALUES(?,?,?,?) [42122-2
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-10-20 19:45:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible eliminar "ADDRESSES" debido a que "CONSTRAINT_78" depende de él.
+Cannot drop "ADDRESSES" because "CONSTRAINT_78" depends on it; SQL statement:
+DROP TABLE IF EXISTS ADDRESSES [90107-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:97)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:121)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at com.dh.dentalClinicMVCE.dao.DB.createTables(DB.java:25)
+	at com.dh.dentalClinicMVCE.DentalClinicApplication.main(DentalClinicApplication.java:10)

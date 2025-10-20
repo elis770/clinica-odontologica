@@ -5,55 +5,33 @@ import java.time.LocalDate;
 public class Patient {
 
     private Integer id;
-    private String name;
-    private String lastName;
+    private String nombre;
+    private String apellido;
     private String email;
-    private Integer cardIdentity;
-    private LocalDate admissionOfDate;
+    private String dni;
+    private LocalDate fechaIngreso;
     private Address address;
 
-    public Patient(){
+    public Patient() {
     }
-    public Patient(Integer id, String name, String lastName, String email, Integer cardIdentity, LocalDate admissionOfDate, Address address) {
+
+    public Patient(Integer id, String nombre, String apellido, String email, String dni, LocalDate fechaIngreso, Address address) {
         this.id = id;
-        this.name = name;
-        this.lastName = lastName;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.email = email;
-        this.cardIdentity = cardIdentity;
-        this.admissionOfDate = admissionOfDate;
+        this.dni = dni;
+        this.fechaIngreso = fechaIngreso;
         this.address = address;
     }
-    public Patient(String name, String lastName, Integer cardIdentity, LocalDate admissionOfDate, Address address, String email) {
-        this.name = name;
-        this.lastName = lastName;
+
+    public Patient(String nombre, String apellido, String email, String dni, LocalDate fechaIngreso, Address address) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.email = email;
-        this.cardIdentity = cardIdentity;
-        this.admissionOfDate = admissionOfDate;
+        this.dni = dni;
+        this.fechaIngreso = fechaIngreso;
         this.address = address;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public LocalDate getAdmissionOfDate() {
-        return admissionOfDate;
-    }
-
-    public void setAdmissionOfDate(LocalDate admissionOfDate) {
-        this.admissionOfDate = admissionOfDate;
-    }
-
-    public Integer getCardIdentity() {
-        return cardIdentity;
-    }
-
-    public void setCardIdentity(Integer cardIdentity) {
-        this.cardIdentity = cardIdentity;
     }
 
     public Integer getId() {
@@ -64,20 +42,20 @@ public class Patient {
         this.id = id;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getName() {
-        return name;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getEmail() {
@@ -86,5 +64,29 @@ public class Patient {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public LocalDate getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(LocalDate fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

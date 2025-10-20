@@ -1,21 +1,19 @@
 package com.dh.dentalClinicMVCE.service;
 
-import com.dh.dentalClinicMVCE.dao.PatientIDaoH2;
+import com.dh.dentalClinicMVCE.dao.PatientDaoH2;
 import com.dh.dentalClinicMVCE.model.Patient;
-
-import java.sql.SQLException;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PatientService {
 
-    private PatientIDaoH2 patientIDao;
+    private final PatientDaoH2 patientIDao;
 
     @Autowired
-    public PatientService(PatientIDaoH2 patientIDao) {
+    public PatientService(PatientDaoH2 patientIDao) {
         this.patientIDao = patientIDao;
     }
 
@@ -27,11 +25,11 @@ public class PatientService {
         return patientIDao.findById(id);
     }
 
-    public Patient update(Patient patient) {
-        return patientIDao.update(patient);
+    public void updatePatient(Patient patient) {
+        patientIDao.update(patient);
     }
 
-    public void delete(Integer id) {
+    public void deletePatient(Integer id) {
         patientIDao.delete(id);
     }
 
@@ -39,7 +37,7 @@ public class PatientService {
         return patientIDao.findAll();
     }
 
-    public Patient findByEmail(String email){
+    public Patient findByEmail(String email) {
         return patientIDao.findByString(email);
     }
 }

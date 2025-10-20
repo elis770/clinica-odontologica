@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IDao<T> {
 
-    T save(T t) throws SQLException;
+    T save(T t);
 
     T findById(Integer id);
 

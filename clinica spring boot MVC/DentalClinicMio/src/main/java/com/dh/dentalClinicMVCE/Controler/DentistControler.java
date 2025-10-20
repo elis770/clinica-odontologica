@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/odontologos")
+@CrossOrigin(origins = "*")
 public class DentistControler {
     private DentistService dentistService;
     public DentistControler(DentistService dentistService){
