@@ -12,10 +12,10 @@ public class AppoitmentService {
 
     private IDao<Appoitment> appoitmentIDao;
 
-    @Autowired
-    public AppoitmentService(IDao<Appoitment> appoitmentIDao){
+    public AppoitmentService(IDao<Appoitment> appoitmentIDao) {
         this.appoitmentIDao = appoitmentIDao;
     }
+
     public Appoitment save(Appoitment appoitment){
         return appoitmentIDao.save(appoitment);
     }

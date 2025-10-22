@@ -3,6 +3,8 @@ package com.dh.dentalClinicMVCE.Controler;
 import com.dh.dentalClinicMVCE.model.Appoitment;
 import com.dh.dentalClinicMVCE.service.AppoitmentService;
 import com.dh.dentalClinicMVCE.service.DentistService;
+import com.dh.dentalClinicMVCE.service.PatientService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +16,13 @@ public class AppoitmentControler {
 
     private AppoitmentService appoitmentService;
     private DentistService dentistService;
+    private PatientService patientService;
 
-    public AppoitmentControler(AppoitmentService appoitmentService, DentistService dentistService) {
+    @Autowired
+    public AppoitmentControler(AppoitmentService appoitmentService, DentistService dentistService, PatientService patientService) {
         this.appoitmentService = appoitmentService;
         this.dentistService = dentistService;
+        this.patientService = patientService;
     }
 
     @GetMapping

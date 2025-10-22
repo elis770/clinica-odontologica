@@ -6,9 +6,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Component
 public class DentistDaoH2 implements IDao<Dentist> {
     private static final String SQL_INSERT = "INSERT INTO DENTISTS (REGISTRATION, NAME, LAST_NAME) VALUES(?,?,?)";
     private static final String SQL_SELECT_ID = "SELECT * FROM DENTISTS WHERE ID =?";

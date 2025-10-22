@@ -1,5 +1,6 @@
 package com.dh.dentalClinicMVCE.service;
 
+import com.dh.dentalClinicMVCE.dao.IDao;
 import com.dh.dentalClinicMVCE.dao.PatientDaoH2;
 import com.dh.dentalClinicMVCE.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,9 @@ import java.util.List;
 @Service
 public class PatientService {
 
-    private final PatientDaoH2 patientIDao;
+    private IDao<Patient> patientIDao;
 
-    @Autowired
-    public PatientService(PatientDaoH2 patientIDao) {
+    public PatientService(IDao<Patient> patientIDao) {
         this.patientIDao = patientIDao;
     }
 

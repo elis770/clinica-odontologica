@@ -10,9 +10,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Component
 public class AddressDaoH2 implements IDao<Address> {
     private static final String SQL_INSERT = "INSERT INTO ADDRESSES (STREET, NUMBER, LOCATION, PROVINCE) VALUES(?,?,?,?)";
     private static final String SQL_SELECT_ID = "SELECT * FROM ADDRESSES WHERE ID =?";

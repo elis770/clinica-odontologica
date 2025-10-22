@@ -1,6 +1,7 @@
 package com.dh.dentalClinicMVCE.service;
 
 import com.dh.dentalClinicMVCE.dao.DentistDaoH2;
+import com.dh.dentalClinicMVCE.dao.IDao;
 import com.dh.dentalClinicMVCE.model.Dentist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +11,9 @@ import java.util.List;
 
 @Service
 public class DentistService {
-    private final DentistDaoH2 dentistIDao;
+    private IDao<Dentist> dentistIDao;
 
-    @Autowired
-    public DentistService(DentistDaoH2 dentistIDao) {
+    public DentistService(IDao<Dentist> dentistIDao) {
         this.dentistIDao = dentistIDao;
     }
 

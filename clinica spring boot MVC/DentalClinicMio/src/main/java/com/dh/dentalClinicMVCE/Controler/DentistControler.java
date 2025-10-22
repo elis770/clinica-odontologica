@@ -3,6 +3,7 @@ package com.dh.dentalClinicMVCE.Controler;
 import com.dh.dentalClinicMVCE.model.Dentist;
 import com.dh.dentalClinicMVCE.model.Dentist;
 import com.dh.dentalClinicMVCE.service.DentistService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +13,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class DentistControler {
     private DentistService dentistService;
+
+    @Autowired
     public DentistControler(DentistService dentistService){
         this.dentistService = dentistService;
     }

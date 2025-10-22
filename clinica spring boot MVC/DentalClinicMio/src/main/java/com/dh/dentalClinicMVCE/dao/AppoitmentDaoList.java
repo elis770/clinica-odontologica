@@ -1,13 +1,14 @@
 package com.dh.dentalClinicMVCE.dao;
 
 import com.dh.dentalClinicMVCE.model.Appoitment;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Component
 public class AppoitmentDaoList implements IDao<Appoitment> {
 
     private List<Appoitment> appoitments;
