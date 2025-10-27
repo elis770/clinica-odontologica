@@ -1,24 +1,39 @@
 package com.dh.dentalClinicMVCE.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "appoitments")
 public class Appoitment {
-    private Integer id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "appointment_id")
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "dentist_id", nullable = false)
     private Dentist dentist;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
+
+    @Column(name = "date")
     private LocalDate date;
 
     public Appoitment() {
 
     }
-    public Appoitment(LocalDate date, Dentist dentist, Integer id) {
-        this.date = date;
-        this.dentist = dentist;
-        this.id = id;
+
+    public Patient getPatient() {
+        return patient;
     }
 
-    public Appoitment(LocalDate date, Dentist dentist) {
-        this.date = date;
-        this.dentist = dentist;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public LocalDate getDate() {
@@ -37,11 +52,11 @@ public class Appoitment {
         this.dentist = dentist;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

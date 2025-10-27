@@ -1,61 +1,74 @@
 package com.dh.dentalClinicMVCE.model;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "patients")
 public class Patient {
 
-    private Integer id;
-    private String nombre;
-    private String apellido;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "patient_id")
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "lastname")
+    private String lastName;
+
+    @Column(name = "email")
     private String email;
-    private String dni;
-    private LocalDate fechaIngreso;
+
+    @Column(name = "cardIdentity")
+    private String cardIdentity;
+
+    @Column(name = "addmission_of_date")
+    private LocalDate admissionOfDate;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Address address;
+
+    @OneToMany(mappedBy = "patient")
+    private Set<Appoitment> apoitments = new HashSet<>();
 
     public Patient() {
     }
 
-    public Patient(Integer id, String nombre, String apellido, String email, String dni, LocalDate fechaIngreso, Address address) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.dni = dni;
-        this.fechaIngreso = fechaIngreso;
-        this.address = address;
+    public Set<Appoitment> getApoitments() {
+        return apoitments;
     }
 
-    public Patient(String nombre, String apellido, String email, String dni, LocalDate fechaIngreso, Address address) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.dni = dni;
-        this.fechaIngreso = fechaIngreso;
-        this.address = address;
+    public void setApoitments(Set<Appoitment> apoitments) {
+        this.apoitments = apoitments;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -66,20 +79,20 @@ public class Patient {
         this.email = email;
     }
 
-    public String getDni() {
-        return dni;
+    public String getCardIdentity() {
+        return cardIdentity;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setCardIdentity(String cardIdentity) {
+        this.cardIdentity = cardIdentity;
     }
 
-    public LocalDate getFechaIngreso() {
-        return fechaIngreso;
+    public LocalDate getAdmissionOfDate() {
+        return admissionOfDate;
     }
 
-    public void setFechaIngreso(LocalDate fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
+    public void setAdmissionOfDate(LocalDate admissionOfDate) {
+        this.admissionOfDate = admissionOfDate;
     }
 
     public Address getAddress() {

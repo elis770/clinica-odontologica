@@ -1,45 +1,61 @@
 package com.dh.dentalClinicMVCE.Controler;
 
+import com.dh.dentalClinicMVCE.service.IPatientService;
 import com.dh.dentalClinicMVCE.model.Patient;
-import com.dh.dentalClinicMVCE.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/pacientes")
 public class PatientControler {
 
-    private PatientService patientService;
+    private IPatientService iPatientService;
 
     @Autowired
-    public PatientControler(PatientService patientService) {
-        this.patientService = patientService;
+    public PatientControler(IPatientService iPatientService) {
+        this.iPatientService = iPatientService;
     }
 
     @GetMapping("/{id}")
-    public Patient findById(@PathVariable Integer id) {
-        return patientService.findById(id);
+    public ResponseEntity<Patient> findById(@PathVariable Long id) {
+        Optional<Patient> patient =  iPatientService.findById(id);
+        if (!patient.isPresent()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(patient.get());
     }
 
     @PostMapping
-    public Patient save(@RequestBody Patient patient) {
-        return patientService.save(patient);
+    public ResponseEntity<Patient> save(@RequestBody Patient patient) {
+        return ResponseEntity.ok(iPatientService.save(patient));
     }
 
     @PutMapping
-    public void update(@RequestBody Patient patient) {
-        patientService.updatePatient(patient);
+    public ResponseEntity<Patient> update(@RequestBody Patient patient) {
+        Optional<Patient> patientToLookFor = iPatientService.findById(patient.getId());
+        if (patientToLookFor.isPresent()){
+            return ResponseEntity.ok(iPatientService.save(patient));
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
-        patientService.deletePatient(id);
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        Optional<Patient> patient = iPatientService.findById(id);
+
+        if (!patient.isPresent()){
+            return ResponseEntity.notFound().build();
+        }
+        iPatientService.delete(id);
+        return ResponseEntity.ok("Paciente eliminado correctamente");
     }
 
     @GetMapping
-    public List<Patient> findAll() {
-        return patientService.findAll();
+    public ResponseEntity<List<Patient>> findAll(){
+        return ResponseEntity.ok(iPatientService.findAll());
     }
 }

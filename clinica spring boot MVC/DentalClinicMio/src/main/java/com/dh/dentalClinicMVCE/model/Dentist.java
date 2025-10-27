@@ -1,33 +1,44 @@
 package com.dh.dentalClinicMVCE.model;
 
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "dentists")
 public class Dentist {
 
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "dentist_id")
+    private Long id;
+    @Column(name = "registration")
     private Integer registration;
+    @Column(name = "name")
     private String name;
+    @Column(name = "lastname")
     private String lastName;
 
+    @OneToMany(mappedBy = "dentist")
+    private Set<Appoitment> appoitments = new HashSet<>();
 
     public Dentist(){
     }
-    public Dentist(Integer id,int registration, String lastName, String name) {
-        this.id = id;
-        this.registration = registration;
-        this.lastName = lastName;
-        this.name = name;
+
+    public Set<Appoitment> getAppoitments() {
+        return appoitments;
     }
 
-    public Dentist(String lastName, String name, Integer registration) {
-        this.registration = registration;
-        this.lastName = lastName;
-        this.name = name;
+    public void setAppoitments(Set<Appoitment> appoitments) {
+        this.appoitments = appoitments;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

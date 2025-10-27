@@ -5,18 +5,23 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class PatientServiceTest {
 
     @Autowired
-    private PatientService patientService;
+    private IPatientService patientService;
     @Test
     void findById() {
-        Integer idP = 1;
+        Patient patient = new Patient();
+        patient.setName("John");
+        patient.setLastName("Doe");
+        Patient savedPatient = patientService.save(patient);
 
-        Patient patient = patientService.findById(idP);
-        assertNotNull(patient);
+        Optional<Patient> foundPatient = patientService.findById(savedPatient.getId());
+        assertTrue(foundPatient.isPresent());
     }
 }
